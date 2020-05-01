@@ -1,49 +1,66 @@
-\documentclass{article}
+\documentclass[10pt]{article}
 
 \title{Running biomechanics and the effect of heel versus forefoot strike}
-\author{John Trombetta\thanks{Author is with the Department of Mechanical Engineering, United States Naval Academy. Address for correspondence: \emph{m236348@usna.edu}}
+\author{John Trombetta\thanks{Author is with the Department of Mechanical Engineering at the United States Naval Academy. Address for correspondence: \emph{m236348@usna.edu}}}
 \date{\today}
 
-\usepackage{siunitx}
+
+\usepackage[separate-uncertainty=true]{siunitx}
+\DeclareSIUnit{\year}{y}
+\DeclareSIUnit{\inch}{in}
+\DeclareSIUnit{\foot}{ft}
+\DeclareSIUnit{\poundforce}{lbf}
+\DeclareSIUnit{\pound}{lbm}
+\DeclareSIUnit{\frame}{frame}
 \usepackage{graphicx}
 \usepackage[round,authoryear]{natbib}
 \bibliographystyle{apalike}
+\usepackage[plain]{fancyref}
+\usepackage{listings}
+\usepackage{amsmath,amsfonts,amssymb}
+\usepackage{booktabs}
+\lstset{%
+  basicstyle=\ttfamily,
+  columns=fullflexible,
+  showstringspaces=false}
+\usepackage[dvipsnames,svgnames]{xcolor}
+\usepackage{hyperref}
+\hypersetup{%
+  colorlinks=true,
+  linkcolor=violet,
+  urlcolor=blue,
+  citecolor=blue}
+\usepackage{svg}
+%\usepackage{svg-extract}
+\usepackage{fullpage}
+\newcommand{\Homosapiens}{\emph{Homo sapiens}}
+\newcommand{\Hsapiens}{\emph{H.~sapiens}}
+\newcommand{\Matlab}{Matlab}
+
+
+
 
 \begin{document}
 \maketitle
 \begin{abstract}
 Write one paragraph here that explains what your report is about.
 \end{abstract}
+{\scriptsize\textbf{Keywords: }shin splints, running, kinematics, ground reaction forces, kymograph}
 
-\section{Introduction}
-% Trombetta: Most of what I have is not running shin splints stuff; hopeful you found some there. I do have some general human running stuff in the list. You might ask 1/C Anmol Walha about running biomechanics, and 1/C Lily Bautista about walking and ankles? I have their 485 projects but not the references they found... 
-
-To study the effectiveness and injury risk of heel strike versus forefoot strike running.
-
-Explain heel strike versus forefoot strike
-
-Work from an inverted triangle (broader topics to more specific). Explain what you are interested, review some relevant literature, and then set up what your specific research question is. Cite literature using the author-year format, as in \citep{buck2020go}. If you need pictures to explain the relevant biomechanics, feel free to include. This section should also say a little why your research matters. 
-
-The last part of this section should be the specific hypotheses you seek to test. 
-
-\section{Methods and materials}
-%Explain what you did, in enough detail so someone can replicate it. If you need pictures or drawings to explain the setup feel free to use them. 
-
-\subsection{Video kinematics on a treadmill}
-\subsection{Measurement of accelerations using a smart phone}
-\subsection{Improvised force plate kymograph}
-
-\section{Results}
-%Explain factually what you found... leave interpretation of what it means for the final discussion section. Here you would include plots of what you found or comparison tables.
-\subsection{Video kinematics on a treadmill}
-\subsection{Improvised force plate kymograph}
-
-\section{Discussion}
-Here discuss what your results mean. Are your hypotheses supported or not? Do you have an answer to your overall research question?
+\input{intro.tex} %\section{Introduction}
+\input{methods.tex} %\section{Methods and materials}
+\input{results.tex} %\section{Results}
+\input{discussion.tex} %\section{Discussion}
 
 \section{Acknowledgements}
-
+I thank Cameron Smith, Alexis Pak, and Sofia Figueroa for their assistance as classmates in EW282D / EW496. USNA Biomechanics is supported by Lockheed Martin. 
 
 % References
 \bibliography{trombetta.bib}
+
+%\clearpage
+%\appendix
+%\renewcommand{\figurename}{Supplementary Figure}
+%\renewcommand{\thefigure}{S\arabic{figure}}
+%\input{method-details.tex}
 \end{document}

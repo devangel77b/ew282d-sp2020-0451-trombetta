@@ -247,7 +247,7 @@ ystart = max([toe.pt1_cam1_Y; toe.pt2_cam1_Y]);
 
 f1 = figure('Units','inches','Position',[0 0 6 6]);
 ax1 = axes(f1);
-width=10340; contact_color = [1 0.6 0.6];
+width=10700; contact_color = [1 0.6 0.6];
 starts = [1 98 196 292 387];
 for j=1:5
     if j==1

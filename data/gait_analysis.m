@@ -90,7 +90,7 @@ toe.frame = [1:length(toe.pt1_cam1_X)]';
 toe.stance = zeros(size(toe.pt1_cam1_X));
 toe.stance([2:9, 21:28, 40:48, 60:68, 79:87, 98:106, 118:126, 137:145, 157:164 ...
     176:184, 196:203, 215:223, 234:242, 253:261, 272:280, 292:299, 310:317 ...
-    329:337, 349:256, 368:375, 387:395, 406:414]) = 1;
+    329:337, 349:356, 368:375, 387:395, 406:414]) = 1;
 toe.t = toe.frame/30.0;
 
 % compute PCA and use Hilbert transform to obtain phase the Shai Revzen way
@@ -172,12 +172,112 @@ exportgraphics(f3,'heel-hip-angle.png','Resolution',300);
 exportgraphics(f4,'toe-foot-angle.png','Resolution',300);
 exportgraphics(f5,'toe-knee-angle.png','Resolution',300);
 exportgraphics(f6,'toe-hip-angle.png','Resolution',300);
-exportgraphics(f1,'heel-foot-angle.pdf');
-exportgraphics(f2,'heel-knee-angle.pdf');
-exportgraphics(f3,'heel-hip-angle.pdf');
-exportgraphics(f4,'toe-foot-angle.pdf');
-exportgraphics(f5,'toe-knee-angle.pdf');
-exportgraphics(f6,'toe-hip-angle.pdf');
+exportgraphics(f1,'heel-foot-angle.pdf','ContentType','vector');
+exportgraphics(f2,'heel-knee-angle.pdf','ContentType','vector');
+exportgraphics(f3,'heel-hip-angle.pdf','ContentType','vector');
+exportgraphics(f4,'toe-foot-angle.pdf','ContentType','vector');
+exportgraphics(f5,'toe-knee-angle.pdf','ContentType','vector');
+exportgraphics(f6,'toe-hip-angle.pdf','ContentType','vector');
 
 
-%% Finally make eye candy figure
+%% Eye candy figure for heelstrike
+close all
+
+% figure out pixel velocity of treadmill 
+heel_down = [1 22 42 62 82 102 122 142 162 182 203 223 243 263 283 303 323 344];
+heel_toe_down = [3 24 44 64 84 104 124 144 164 185 205 226 246 266 286 305 326];
+heel_toe_up = [12 32 52 71 91 111 131 151 171 192 212 233 252 272 292 312 332];
+dpixel = heel.pt1_cam1_X(heel_toe_up)-heel.pt1_cam1_X(heel_toe_down);
+dt = heel.t(heel_toe_up)-heel.t(heel_toe_down);
+u = dpixel./dt;
+U = mean(u); 
+xstart = heel.pt4_cam1_X(1); 
+ystart = max([heel.pt1_cam1_Y; heel.pt2_cam1_Y]); 
+
+f1 = figure('Units','inches','Position',[0 0 6 6]);
+ax1 = axes(f1);
+width=10700; contact_color = [0.6 0.6 1];
+starts = [1 82 162 243 323];
+for j=1:5
+    if j==1
+        xlims = [0 width];
+    else
+        xlims = [0 width]+xstart+U*heel.t(starts(j))-heel.pt4_cam1_X(starts(j)); 
+    end
+    sj = subplot(5,1,j,'NextPlot','add','YLim',[0,1080],'XLim',xlims,'visible','off');
+    for i=1:length(heel.pt1_cam1_X)
+        xi = xstart+U*heel.t(i)-[heel.pt1_cam1_X(i) heel.pt2_cam1_X(i) heel.pt6_cam1_X(i) heel.pt3_cam1_X(i) heel.pt4_cam1_X(i)];
+        yi = ystart-[heel.pt1_cam1_Y(i) heel.pt2_cam1_Y(i) heel.pt6_cam1_Y(i) heel.pt3_cam1_Y(i) heel.pt4_cam1_Y(i)];
+        if ismember(i,heel_down)
+            plot(xi,yi,'color',[0 0 0 1]);
+            if ((xlims(1)<=xi(5)) && (xi(5)<=xlims(2)))
+              text(xi(5),1000,num2str(i),'FontSize',6,'HorizontalAlignment','center');
+            end
+            plot(xi(2),-100,'^','MarkerSize',3,'MarkerFaceColor',contact_color,'MarkerEdgeColor',contact_color);
+            %plot(xi(5),yi(5),'k.')
+        elseif heel.stance(i)
+            plot(xi,yi,'color',[0 0 1 0.5]);
+            %plot(xi(5),yi(5),'.','color',[0 0 1 0.5]);
+        else 
+            plot(xi,yi,'color',[0 0 0 0.2]);
+            %plot(xi(5),yi(5),'.','color',[0 0 0 0.2]);
+        end
+    end
+    axis equal
+end
+exportgraphics(f1,'heel-pretty.png','Resolution',300);
+exportgraphics(f1,'heel-pretty.pdf','ContentType','vector');
+
+
+
+
+
+%% Eye candy figure for toe strike
+close all
+
+% figure out pixel velocity of treadmill 
+toe_down = [2 21 40 60 79 98 118 137 157 176 196 215 234 253 272 292 310 329 349 368 387 406];
+toe_up = [9 28 48 68 87 106 126 145 164 184 203 223 242 261 280 299 317 337 356 375 395 414];
+dpixel = toe.pt1_cam1_X(toe_up)-toe.pt1_cam1_X(toe_down);
+dt = toe.t(toe_up)-toe.t(toe_down);
+u = dpixel./dt;
+U = mean(u); 
+xstart = toe.pt4_cam1_X(1); 
+ystart = max([toe.pt1_cam1_Y; toe.pt2_cam1_Y]); 
+
+f1 = figure('Units','inches','Position',[0 0 6 6]);
+ax1 = axes(f1);
+width=10340; contact_color = [1 0.6 0.6];
+starts = [1 98 196 292 387];
+for j=1:5
+    if j==1
+        xlims = [0 width];
+    else
+        xlims = [0 width]+xstart+U*toe.t(starts(j))-toe.pt4_cam1_X(starts(j)); 
+    end
+    sj = subplot(5,1,j,'NextPlot','add','YLim',[0,1080],'XLim',xlims,'visible','off');
+    for i=1:length(toe.pt1_cam1_X)
+        xi = xstart+U*toe.t(i)-[toe.pt1_cam1_X(i) toe.pt2_cam1_X(i) toe.pt6_cam1_X(i) toe.pt3_cam1_X(i) toe.pt4_cam1_X(i)];
+        yi = ystart-[toe.pt1_cam1_Y(i) toe.pt2_cam1_Y(i) toe.pt6_cam1_Y(i) toe.pt3_cam1_Y(i) toe.pt4_cam1_Y(i)];
+        if ismember(i,toe_down)
+            plot(xi,yi,'color',[0 0 0 1]);
+            if ((xlims(1)<=xi(5)) && (xi(5)<=xlims(2)))
+              text(xi(5),1000,num2str(i),'FontSize',6,'HorizontalAlignment','center');
+            end
+            plot(xi(1),-100,'^','MarkerSize',3,'MarkerFaceColor',contact_color,'MarkerEdgeColor',contact_color);
+            %plot(xi(5),yi(5),'k.')
+        elseif toe.stance(i)
+            plot(xi,yi,'color',[1 0 0 0.5]);
+            %plot(xi(5),yi(5),'.','color',[1 0 0 0.5]);
+        else 
+            plot(xi,yi,'color',[0 0 0 0.2]);
+            %plot(xi(5),yi(5),'.','color',[0 0 0 0.2]);
+        end
+    end
+    axis equal
+end
+exportgraphics(f1,'toe-pretty.png','Resolution',300);
+exportgraphics(f1,'toe-pretty.pdf','ContentType','vector');
+
+
+

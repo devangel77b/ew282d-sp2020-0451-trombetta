@@ -7,7 +7,7 @@ raw  <- read_csv('stride-data.csv')
 data <- mutate(raw,
                stride.period = (next.down-down)/frame.rate,
                stride.frequency = 1/stride.period,
-               stride.length = u/stride.period,
+               stride.length = u*stride.period,
                duty.cycle = (up-down)/(next.down-down))
 grouped  <- group_by(data, treatment)
 
@@ -69,7 +69,7 @@ stride.length.plot <- ggplot(grouped.results,
     geom_errorbar(aes(ymin=mean.stride.length-sd.stride.length,
                       ymax=mean.stride.length+sd.stride.length),width=0.2)+
     ylab('stride length, m')+
-    annotate("text",x=2,y=1.625,label='*')+
+    annotate("text",x=2,y=2.4,label='*')+
     theme_bw(base_size=8)+
     theme(text=element_text(size=8),
           axis.title.x=element_blank(),
@@ -107,9 +107,9 @@ dev.off()
 #Residuals   36 0.05058 0.00140                     
 
 #> summary(baz)
-#            Df  Sum Sq Mean Sq F value   Pr(>F)    
-#treatment    1 0.05237 0.05237   37.27 5.03e-07 ***
-#Residuals   36 0.05058 0.00140                     
+#            Df Sum Sq Mean Sq F value   Pr(>F)    
+#treatment    1 0.1227 0.12268   37.51 4.74e-07 ***
+#Residuals   36 0.1177 0.00327 
 
 #> summary(boo)
 #            Df  Sum Sq Mean Sq F value   Pr(>F)    
@@ -117,14 +117,18 @@ dev.off()
 #Residuals   36 0.02088 0.00058                     
 
 
-
-#> print(grouped.results,width=100)
+#> print(grouped.results,width=200)
 ## A tibble: 2 x 10
-#  treatment mean.stride.peri… sd.stride.period mean.stride.fre… sd.stride.frequ…
-#  <chr>                 <dbl>            <dbl>            <dbl>            <dbl>
-#1 heel                  0.673           0.0131             1.49           0.0280
-#2 toe                   0.641           0.0180             1.56           0.0436
-#  mean.stride.length sd.stride.length mean.duty.cycle sd.duty.cycle     n
-#               <dbl>            <dbl>           <dbl>         <dbl> <int>
-#1               1.49           0.0280           0.463        0.0262    17
-#2               1.56           0.0436           0.396        0.0222    21
+#  treatment mean.stride.period sd.stride.period mean.stride.frequency
+#  <chr>                  <dbl>            <dbl>                 <dbl>
+#1 heel                   0.673           0.0131                  1.49
+#2 toe                    0.641           0.0180                  1.56
+#  sd.stride.frequency mean.stride.length sd.stride.length mean.duty.cycle
+#                <dbl>              <dbl>            <dbl>           <dbl>
+#1              0.0280               2.41           0.0469           0.463
+#2              0.0436               2.29           0.0642           0.396
+#  sd.duty.cycle     n
+#          <dbl> <int>
+#1        0.0262    17
+#2        0.0222    21
+

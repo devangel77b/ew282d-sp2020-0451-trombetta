@@ -1,16 +1,16 @@
 \section{Results}
 \label{sec:results}
-%Explain factually what you found... leave interpretation of what it means for the final discussion section. Here you would include plots of what you found or comparison tables.
 
 \subsection{Improvised force plate kymograph}
-Heel versus toe-strike two trials. Toe-strike only shows lateral movement of rig, primarily with left foot. 
+\Fref{fig:results:forceplate}A-B gives the force plate kymograph traces for two heel- versus toe-strike trials. Maximum vertical GRFs appear approximately equal in magnitude among the two treatments.  Some traces appear to show lateral movement of the force plate (yellow arrows); these appear to happen only in toe-strike trials, including an additional toe-strike trial to check for this effect (\fref{fig:results:forceplate}C). \Fref{fig:results:forceplate}C appears to show the lateral motion only occurs with the left foot. 
 \begin{figure}
 \begin{center}
-a \includegraphics[width=0.29\columnwidth]{figures/results3.png}
-b \includegraphics[width=0.29\columnwidth]{figures/results4.png}
-c \includegraphics[width=0.29\columnwidth]{figures/results5.png}
+%a \includegraphics[width=0.29\columnwidth]{figures/results3.png}
+%b \includegraphics[width=0.29\columnwidth]{figures/results4.png}
+%c \includegraphics[width=0.29\columnwidth]{figures/results5.png}
+\includegraphics[width=0.75\columnwidth]{figures/fig-results-4.png}
 \end{center}
-\caption{Improvised force plate recordings of vertical ground reaction force; (a) and (b) trials comparing heel strike and toe strike; (c) checking toe strike. \textbf{Crop, fix annotate.}}
+\caption{Improvised force plate recordings of vertical ground reaction force; (A) and (B) trials comparing heel-strike (H) and toe-strike (T); (C) checking horizontal GRF toe-strike. Yellow arrows denote steps in which there appears to be either platform motion or a large horizontal GRF.}
 \label{fig:results:forceplate}
 \end{figure}
 
@@ -20,11 +20,12 @@ c \includegraphics[width=0.29\columnwidth]{figures/results5.png}
 
 \subsection{Measurements of acceleration using a smartphone}
 \SI{10}{\second} recordings of the vertical ($Y$) acceleration during running with heel- and toe-strike are shown in~\fref{fig:results:accel}. Toe-strike appears to provide slightly higher peaks accelerations, but is not statistically different from heel-strike (ANOVA, $p=0.551$, $n=1998$). Vertical accelerations (mean$\pm$s.d.) are \SI{9.5\pm8.8} for heel-strike and \SI{9.3\pm10} for toe-strike. 
-\begin{figure}
+\begin{figure}[h]
 \begin{center}
-\includegraphics{data/accel/accelerations-raw.pdf}
+%\includegraphics{data/accel/accelerations-raw.pdf}
+\includegraphics[width=3.1in]{figures/fig-results-5.png}
 \end{center}
-\caption{$Y$ accelerations (approximately vertical) recorded during running with (a) heel-strike and (b) toe-strike. \textbf{Add A B annotations}}
+\caption{$Y$ (approximately vertical) accelerations recorded during running with (A) heel-strike and (B) toe-strike.}
 \label{fig:results:accel}
 \end{figure}
 
@@ -33,32 +34,8 @@ c \includegraphics[width=0.29\columnwidth]{figures/results5.png}
 
 
 \subsection{Video kinematics on a treadmill}
-\begin{figure}
-\begin{center}
-\includegraphics[width=0.29\columnwidth]{figures/point-references.png}
-\includegraphics[width=0.29\columnwidth]{figures/heel-screenshot.png}
-\includegraphics[width=0.29\columnwidth]{figures/toe-screenshot.png}
-\end{center}
-\caption{Digitzation points and example digitized points in (b) heel-strike and (c) toe-strike running, from dltdv8 \citep{hedrick2008software}. \textbf{Add annotations.}} 
-\label{fig:methods:dltdv8-1}
-\end{figure}
-
-
-\begin{figure}
-\begin{center}
-% move these guys to methods?
-\includegraphics[width=0.29\columnwidth]{figures/heel_frames1.png}
-\includegraphics[width=0.29\columnwidth]{figures/heel_frames3.png}
-\includegraphics[width=0.29\columnwidth]{figures/heel_frames7.png}\\
-\includegraphics[width=0.29\columnwidth]{figures/heel_frames10.png}
-\includegraphics[width=0.29\columnwidth]{figures/heel_frames17.png}
-\includegraphics[width=0.29\columnwidth]{figures/heel_frames22.png}
-\end{center}
-\caption{Example video frames from running on a treadmill at \SI{8}{mph} (\SI{3.6}{\meter\per\second}), showing (a) heel-strike; (b) toe down; (d) toe up; and (f) start of the next step. \textbf{Add annotations.}} 
-\label{fig:methods:dltdv8-2}
-\end{figure}
-
-\begin{figure}
+Figures~\ref{fig:results:heelpretty} and \ref{fig:results:toepretty} show the digitized kinematics from running on the treadmill at \SI{8}{mph} (\SI{3.6}{\meter\per\second}). A \SI{1}{\meter} scale is provided at the bottom right. Heel- or foot-strike position is indicated with triangles, and the portions of the digitized leg positions in which the leg is in stance phase are shown in color. Directions are reversed from the original video recording to show conventional motion to the right. 
+\begin{figure}[p]
 \begin{center}
 \includegraphics{data/heel-pretty.pdf}
 \end{center}
@@ -66,7 +43,7 @@ c \includegraphics[width=0.29\columnwidth]{figures/results5.png}
 \label{fig:results:heelpretty}
 \end{figure}
 
-\begin{figure}
+\begin{figure}[p]
 \begin{center}
 \includegraphics{data/toe-pretty.pdf}
 \end{center}
@@ -74,6 +51,7 @@ c \includegraphics[width=0.29\columnwidth]{figures/results5.png}
 \label{fig:results:toepretty}
 \end{figure}
 
+The reduced data for 17 heel-strike and 21 toe-strike steps are shown in \fref{fig:results:stride} and \fref{tab:results:stride}. Results show statistically significant differences: toe-strike stride period is shorter (ANOVA, $p=\num{4.7e-7}$, $n=17$), stride frequency is higher (ANOVA, $p=\num{5e-7}$), stride length is shorter (ANOVA, $p=\num{4.7e-7}$), and duty cycle is shorter (ANOVA, $p=\num{3e-10}$).
 \begin{figure}
 \begin{center}
 \includegraphics{figures/stride-data.png}
@@ -82,7 +60,7 @@ c \includegraphics[width=0.29\columnwidth]{figures/results5.png}
 \label{fig:results:stride}
 \end{figure}
 
-\begin{table}
+\begin{table}[h]
 \caption{Reduced stride data (mean$\pm$s.d.) for 17 heel-strike and 21 toe-strike steps during running on a treadmill. Toe-strike stride period is shorter (ANOVA, $p=\num{4.7e-7}$, $n=17$), stride frequency is higher (ANOVA, $p=\num{5e-7}$), stride length is shorter (ANOVA, $p=\num{4.7e-7}$), and duty cycle is shorter (ANOVA, $p=\num{3e-10}$). See \fref{fig:results:stride}.}
 \label{tab:results:stride}
 \begin{center}
@@ -99,6 +77,7 @@ duty cycle                    & \num{0.46\pm0.03} & \num{0.40\pm0.02} \\
 \end{center}
 \end{table}
 
+Joint angle data for the foot, knee, and hip under heel-strike and toe-strike are shown in \fref{fig:results:jointangles}. \Fref{fig:results:jointangles} collapses all 17 (heel-strike) or 21 (toe-strike) steps into a single plot over one cycle of locomotion using the recovered phase \citep{revzen2008estimating}. Knee and hip angles appear similar between the two running styles, but foot angle shows clear differences immediately before and after foot contact with the ground. In heel-strike, the heel strikes with the foot dorsiflexed; while in toe-strike, the toe strikes the ground while the foot is plantar flexed.
 \begin{figure}
 \begin{center}
 \includegraphics[width=0.49\columnwidth]{data/heel-foot-angle.pdf}
@@ -108,6 +87,15 @@ duty cycle                    & \num{0.46\pm0.03} & \num{0.40\pm0.02} \\
 \includegraphics[width=0.49\columnwidth]{data/heel-hip-angle.pdf}
 \includegraphics[width=0.49\columnwidth]{data/toe-hip-angle.pdf}
 \end{center}
-\caption{Joint angles for heel-strike and toe-strike running on a treadmill at \SI{8}{mph} (\SI{3.6}{\meter\per\second}). (a,b) Foot angle; (c,d) knee angle; (e,f) hip angle. Knee and hip angles appear similar between the two running styles, but foot angle shows clear differences immediately before and after foot contact with the ground. In heel-strike, the heel strikes with the foot dorsiflexed; while in toe-strike, the toe strikes the ground while the foot is plantar flexed, allowing it to act as a shock absorber. \textbf{Add annotations.}}
+\caption{Joint angles for heel-strike and toe-strike running on a treadmill at \SI{8}{mph} (\SI{3.6}{\meter\per\second}). (A,B) Foot angle; (C,D) knee angle; (E,F) hip angle. Knee and hip angles appear similar between the two running styles, but foot angle shows clear differences immediately before and after foot contact with the ground. In heel-strike, the heel strikes with the foot dorsiflexed; while in toe-strike, the toe strikes the ground while the foot is plantar flexed, allowing it to act as a shock absorber.}
 \label{fig:results:jointangles}
+\end{figure}
+
+\Fref{fig:results:contactangles} shows a comparison between the angle of the ankle and the contact angle, i.e. from the heel or toe to the hip. The angular misalignment between the ankle and the angle from the point of contact to the hip is \ang{3.3\pm0.8} in the case of heel-strike, and \ang{27.8\pm3.2} in the case of toe-strike. The difference between the two treatments is significant (Welch two sample t-test, $t=-34.358$, $df=24.476$, $p<\num{2.2e-16}$).
+\begin{figure}
+\begin{center}
+\includegraphics{data/contact-angle.pdf}
+\end{center}
+\caption{Comparison of the angle of the ankle and the contact angle, from the heel or toe to the hip. In the case of heel-strike, the ankle and shins are well aligned with the contact angle with the ground (right). For toe-strike, the ankle and shins are not well aligned with the contact angle with the ground (left). The angular misalignment between the ankle and the angle from the point of contact to the hip is \ang{3.3\pm0.8} in the case of heel-strike, and \ang{27.8\pm3.2} in the case of toe-strike. The difference between the two treatments is significant (Welch two sample t-test, $t=-34.358$, $df=24.476$, $p<\num{2.2e-16}$).} 
+\label{fig:results:contactangles}
 \end{figure}

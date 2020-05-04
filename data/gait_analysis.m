@@ -52,6 +52,7 @@ text(2,50,'dorsiflexion','VerticalAlignment','top','FontSize',8);
 text(2,-50,'plantar flexion','VerticalAlignment','bottom','FontSize',8);
 text(23.15,55,'stance','HorizontalAlignment','center','FontSize',8);
 text(73.15,55,'swing','HorizontalAlignment','center','FontSize',8);
+text(-10,50,'A','HorizontalAlignment','center','VerticalAlignment','bottom','FontSize',12,'FontWeight','bold');
 
 f2=figure('Units','inches','OuterPosition',[0 0 4 3]);
 ax2=axes(f2,'XLim',[0 100],'YLim',[10 110],'NextPlot','add','XGrid','on','YGrid','on','YMinorGrid','on','FontSize',8); 
@@ -64,6 +65,7 @@ text(2,110,'flexion','VerticalAlignment','top','FontSize',8);
 text(2,10,'extension','VerticalAlignment','bottom','FontSize',8);
 text(23.15,115,'stance','HorizontalAlignment','center','FontSize',8);
 text(73.15,115,'swing','HorizontalAlignment','center','FontSize',8);
+text(-10,110,'C','HorizontalAlignment','center','VerticalAlignment','bottom','FontSize',12,'FontWeight','bold');
 
 f3=figure('Units','inches','OuterPosition',[0 0 4 3]);
 ax3=axes(f3,'XLim',[0 100],'YLim',[-50 50],'NextPlot','add','XGrid','on','YGrid','on','YMinorGrid','on','FontSize',8); 
@@ -76,7 +78,7 @@ text(2,50,'flexion','VerticalAlignment','top','FontSize',8);
 text(2,-50,'extension','VerticalAlignment','bottom','FontSize',8);
 text(23.15,55,'stance','HorizontalAlignment','center','FontSize',8);
 text(73.15,55,'swing','HorizontalAlignment','center','FontSize',8);
-
+text(-10,50,'E','HorizontalAlignment','center','VerticalAlignment','bottom','FontSize',12,'FontWeight','bold');
 
 
 
@@ -140,6 +142,7 @@ text(2,50,'dorsiflexion','VerticalAlignment','top','FontSize',8);
 text(2,-50,'plantar flexion','VerticalAlignment','bottom','FontSize',8);
 text(19.8,55,'stance','HorizontalAlignment','center','FontSize',8);
 text(69.8,55,'swing','HorizontalAlignment','center','FontSize',8);
+text(-10,50,'B','HorizontalAlignment','center','VerticalAlignment','bottom','FontSize',12,'FontWeight','bold');
 
 f5=figure('Units','inches','OuterPosition',[0 0 4 3]);
 ax5=axes(f5,'XLim',[0 100],'YLim',[10 110],'NextPlot','add','XGrid','on','YGrid','on','YMinorGrid','on','FontSize',8); 
@@ -152,6 +155,7 @@ text(2,110,'flexion','VerticalAlignment','top','FontSize',8);
 text(2,10,'extension','VerticalAlignment','bottom','FontSize',8);
 text(19.8,115,'stance','HorizontalAlignment','center','FontSize',8);
 text(69.8,115,'swing','HorizontalAlignment','center','FontSize',8);
+text(-10,110,'D','HorizontalAlignment','center','VerticalAlignment','bottom','FontSize',12,'FontWeight','bold');
 
 f6=figure('Units','inches','OuterPosition',[0 0 4 3]);
 ax6=axes(f6,'XLim',[0 100],'YLim',[-50 50],'NextPlot','add','XGrid','on','YGrid','on','YMinorGrid','on','FontSize',8); 
@@ -164,6 +168,7 @@ text(2,50,'flexion','VerticalAlignment','top','FontSize',8);
 text(2,-50,'extension','VerticalAlignment','bottom','FontSize',8);
 text(19.8,55,'stance','HorizontalAlignment','center','FontSize',8);
 text(69.8,55,'swing','HorizontalAlignment','center','FontSize',8);
+text(-10,50,'F','HorizontalAlignment','center','VerticalAlignment','bottom','FontSize',12,'FontWeight','bold');
 
 % Export pretty graphics
 exportgraphics(f1,'heel-foot-angle.png','Resolution',300);
